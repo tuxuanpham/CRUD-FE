@@ -10,7 +10,7 @@ import {
 import {
     clientOrderListRemain
 } from "../../redux/actions/clientOrderList";
-import "./styles/styles.css"
+// import "./styles/styles.sass"
 
 function Products(props) {
     let data = createProductData;
@@ -84,11 +84,11 @@ function Products(props) {
                 <td class="text-start">{item.manufacturer}</td>
                 <td>{item.price} USD</td>
                 <td>{item.quantity}</td>
-                <td>
+                <div style={{display: "flex"}} >
                     <button
                         type="button"
                         className="btn btn-success edit-btn"
-                        // style={{ ...(window.innerWidth <= 1024 && { marginBottom: "5px" }) }}
+                        style={{ marginRight: "5px" }}
                         onClick={() => handleEdit(item.id)}
                     >
                         Edit
@@ -100,7 +100,7 @@ function Products(props) {
                     >
                         Delete
                     </button>
-                </td>
+                </div>
             </tr>
         );
     });
@@ -119,9 +119,9 @@ function Products(props) {
             <button type="button" class="btn btn-primary d-flex ms-4" onClick={handleShowAddProduct}>Add product</button>
 
             {isAddingProduct && <AddProductForm onChildStateChange={handleChildStateChange} />}
-            
+
             {isEditProduct && (
-                <EditProductForm onChildStateChange={handleChildStateChangeEditForm} {...editingProduct} extraProps={{ editText: "Edit product", saveText: "Save" }}/>
+                <EditProductForm onChildStateChange={handleChildStateChangeEditForm} {...editingProduct} extraProps={{ editText: "Edit product", saveText: "Save" }} />
             )}
 
             <table className="table container">
