@@ -48,7 +48,7 @@ function Clients(props) {
             <td>{item.lastName}</td>
             <td>{item.address}</td>
             <td>{item.city}</td>
-            <td>{item.state}</td>
+            <td style={{ color: item.state === 'Log in' ? 'green' : 'blue', fontWeight: item.state === 'Log in' ? 'bold' : 'normal', fontStyle: item.state === 'Log in' ? 'italic' : 'normal' }}>{item.state}</td>
             <td>{item.zipCode}</td>
             <td>{item.phoneNumber}</td>
             <td>{item.emailAddress}</td>
