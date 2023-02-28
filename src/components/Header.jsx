@@ -14,6 +14,7 @@ function Header(props) {
                             <Link to="/" class="nav-item nav-link active">Employees</Link>
                             <Link to="/clients" class="nav-item nav-link">Customers</Link>
                             <Link to="/products" class="nav-item nav-link">Products</Link>
+                            <Link to="/charts" class="nav-item nav-link">Charts</Link>
                         </div>
                         {/* <form class="d-flex">
                             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
