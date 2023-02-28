@@ -136,7 +136,7 @@ function ClientOrderDetail() {
                     />
                 </div> */}
 
-                <h2 className="m-4 text-start text-warning">{"Orders of " + renderOrderDetail.firstName + " " + renderOrderDetail.lastName}</h2>
+                <h2 className="m-4 text-start text-danger" style={{fontStyle: "italic"}}>{"Orders of " + renderOrderDetail.firstName + " " + renderOrderDetail.lastName}</h2>
                 <table className="table container" >
                     <thead>
                         <tr>
