@@ -52,13 +52,14 @@ function Products(props) {
         return 0;
     });
 
+    console.log(sortedData)
     const filteredData = sortedData.filter((item) => {
         return (
             item.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
             item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
             item.manufacturer.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            item.price.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            item.quantity.toLowerCase().includes(searchTerm.toLowerCase())
+            item.price.toString().toLowerCase().includes(searchTerm.toLowerCase()) ||
+            item.price.toString().toLowerCase().includes(searchTerm.toLowerCase())
         );
     });
 

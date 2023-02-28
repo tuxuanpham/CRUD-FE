@@ -1,70 +1,28 @@
-# Getting Started with Create React App
+- Khởi tạo project bằng yarn hoặc npm bằng cách gõ câu lệnh trong ternimal
+  + yarn: yarn install
+  + npm: npm install
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- Chạy tự án
+  + yarn: yarn start
+  + npm: npm start
 
-## Available Scripts
+- Công nghệ sử dụng
+  + React và React DOM: Thư viện JavaScript để xây dựng giao diện người dùng (UI).
+  + Redux và React-Redux: Thư viện quản lý trạng thái ứng dụng (state management).
+  + Reactstrap: Thư viện UI được xây dựng trên Bootstrap 4 cho React.
+  + React Router DOM: Thư viện định tuyến cho ứng dụng React.
+  + Chart.js và React-Chartjs-2: Thư viện tạo biểu đồ.
+  + XLSX: Thư viện cho phép đọc và ghi tệp Excel trong JavaScript.
+  + Chance: Thư viện tạo dữ liệu giả ngẫu nhiên.
+  + File-saver: Thư viện cho phép tải xuống tệp trong JavaScript.
+  + jspdf và jspdf-autotable: Thư viện cho phép tạo tệp PDF trong JavaScript.
+  + Node-sass và Sass: Công cụ cho phép biên dịch Sass thành CSS.
+  + Web Vitals: Thư viện cho phép đo lường các chỉ số hiệu suất trang web.
+  + Gh-pages: Công cụ cho phép triển khai ứng dụng React lên Github Pages.
 
-In the project directory, you can run:
-
-### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Tính năng 
++ Tự động tạo database ngẫu nhiên cho khách hàng, nhân viên, sản phẩm
++ Tìm kiếm thông tin khách hàng, sản phẩm, nhân viên ở các trang
++ Thêm, xóa, chỉnh sửa ở trang "Products"
++ Phân tích biển đồ tiền lương của nhân viên / giờ theo đơn vị USD
++ Ở trang khách hàng sẽ có thông tin chi tiết giỏ hàng của khách hàng, ngoài ra còn có thể export ra PDF hoặc excell
