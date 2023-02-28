@@ -42,5 +42,5 @@ function createRandomEmployeeData(num) {
     return employData;
   }
 
-export default createRandomEmployeeData(5)
+export default createRandomEmployeeData(50)
 
