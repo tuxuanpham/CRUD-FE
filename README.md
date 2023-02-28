@@ -21,8 +21,8 @@
   + Gh-pages: Công cụ cho phép triển khai ứng dụng React lên Github Pages.
 
 - Tính năng 
-+ Tự động tạo database ngẫu nhiên cho khách hàng, nhân viên, sản phẩm
-+ Tìm kiếm thông tin khách hàng, sản phẩm, nhân viên ở các trang
-+ Thêm, xóa, chỉnh sửa ở trang "Products"
-+ Phân tích biển đồ tiền lương của nhân viên / giờ theo đơn vị USD
-+ Ở trang khách hàng sẽ có thông tin chi tiết giỏ hàng của khách hàng, ngoài ra còn có thể export ra PDF hoặc excell
+  + Tự động tạo database ngẫu nhiên cho khách hàng, nhân viên, sản phẩm
+  + Tìm kiếm thông tin khách hàng, sản phẩm, nhân viên ở các trang
+  + Thêm, xóa, chỉnh sửa ở trang "Products"
+  + Phân tích biển đồ tiền lương của nhân viên / giờ theo đơn vị USD
+  + Ở trang khách hàng sẽ có thông tin chi tiết giỏ hàng của khách hàng, ngoài ra còn có thể export  ra PDF hoặc excell
