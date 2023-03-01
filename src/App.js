@@ -5,8 +5,10 @@ import Clients from './pages/clients/clients';
 import Products from './pages/products/products';
 import ClientOrderDetail from './pages/clients/clientOrderDetail';
 import Header from './components/Header';
-import CustomerChart from './pages/charts/CustomerChart';
+import EmployeesChart from './pages/charts/employeesChart';
+import CustomersChart from './pages/charts/customersChart';
 import employeeData from './data/employees/employees';
+import customerOrderData from './data/clients/clientOrderDetail';
 import { Container } from 'react-bootstrap';
 
 function App() {
@@ -23,10 +25,17 @@ function App() {
               element={<ClientOrderDetail />}
             />
             <Route path="/products" element={<Products />} />
+
+            {/* Charts */}
             <Route
-              path="/charts"
-              element={<CustomerChart dataAna={employeeData} />}
+              path="/charts/employees"
+              element={<EmployeesChart dataAna={employeeData} />}
             />
+            <Route
+              path="/charts/customers"
+              element={<CustomersChart dataAna={customerOrderData} />}
+            />
+
           </Routes>
         </HashRouter>
       </Container>

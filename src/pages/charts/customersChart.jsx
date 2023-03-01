@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Chart from 'chart.js/auto';
 
-const EmployeeSalaryChart = ({ dataAna }) => {
+function CustomersChart ({ dataAna }) {
+  console.log(dataAna);
   const [chartData, setChartData] = useState({});
 
   const colors = [];
@@ -16,8 +17,8 @@ const EmployeeSalaryChart = ({ dataAna }) => {
 
   const dataRate = [];
   dataAna.map((item) => {
-    const amountWithoutCurrency = item.hourlyRate.replace(' USD', '');
-    dataRate.push(parseFloat(amountWithoutCurrency));
+    const amountWithoutCurrency = item.products.length;
+    dataRate.push(amountWithoutCurrency);
   });
 
   useEffect(() => {
@@ -26,7 +27,7 @@ const EmployeeSalaryChart = ({ dataAna }) => {
 
     dataAna.forEach((employee) => {
       labels.push(employee.firstName);
-      data.push(employee.hourlyRate);
+      data.push(employee.products.length);
     });
 
     const chart = new Chart('myChart', {
@@ -35,7 +36,7 @@ const EmployeeSalaryChart = ({ dataAna }) => {
         labels: labels,
         datasets: [
           {
-            label: 'Hourly rate of employee',
+            label: 'Number orders of customers',
             data: dataRate,
             backgroundColor: colors,
             borderColor: colors,
@@ -63,4 +64,4 @@ const EmployeeSalaryChart = ({ dataAna }) => {
   );
 };
 
-export default EmployeeSalaryChart;
+export default CustomersChart;
