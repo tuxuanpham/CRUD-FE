@@ -72,6 +72,26 @@ export const clientReducer = (state = initStateClient, { type, payload }) => {
         }),
       };
 
+    //Client data detail after edit product
+    case ActionTypes.DETAIL_CLIENT_AFTER_EDIT_PRODUCT:
+      console.log(payload)
+      return {
+        ...state,
+        clientDataDetail: state.clientDataDetail.map((client) => {
+          return {
+            ...client,
+            products: client.products.map((product)=>{
+              if(product.id == payload.id){
+                return payload;
+              }
+              else{
+                return product
+              }
+            }),
+          };
+        }),
+      };
+
     //Detail client
     case ActionTypes.DETAIL_CLIENTS:
       return {

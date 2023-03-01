@@ -12,3 +12,9 @@ export const clientDataDetailAfterDeleteProduct = (products) => {
     payload: products,
   };
 };
+export const clientDataDetailAfterEditProduct = (products) => {
+  return {
+    type: ActionTypes.DETAIL_CLIENT_AFTER_EDIT_PRODUCT,
+    payload: products,
+  };
+};

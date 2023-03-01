@@ -31,7 +31,7 @@ function createProductData(num) {
   return productData;
 }
 
-export default createProductData(5);
+export default createProductData(10);
 
 // const createProductData = [
 //   {

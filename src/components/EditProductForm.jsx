@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { editProducts } from '../redux/actions/ProductAction';
 import { v4 as uuidv4 } from 'uuid';
+import { clientDataDetailAfterEditProduct } from '../redux/actions/clientOrderDetail';
 
 function EditProductForm(props) {
   const [formData, setFormData] = useState({
@@ -36,6 +37,7 @@ function EditProductForm(props) {
       quantity: formData.quantity,
     };
     dispatch(editProducts(newProduct));
+    dispatch(clientDataDetailAfterEditProduct(newProduct))
     setShowForm(!showForm);
     handleshowForm();
   };

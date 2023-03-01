@@ -3,8 +3,8 @@ import { useState } from 'react';
 import createProductData from '../../data/products/products';
 import { useSelector, useDispatch } from 'react-redux';
 import EditProductForm from '../../components/EditProductForm';
-import { deleteProducts } from '../../redux/actions/ProductAction';
-import { clientDataDetailAfterDeleteProduct } from '../../redux/actions/clientOrderDetail';
+import { deleteProducts, editProducts } from '../../redux/actions/ProductAction';
+import { clientDataDetailAfterDeleteProduct, clientDataDetailAfterEditProduct } from '../../redux/actions/clientOrderDetail';
 
 function Products(props) {
   let data = createProductData;
@@ -58,8 +58,10 @@ function Products(props) {
 
   const handleEdit = (id) => {
     setIsEditProduct(!isEditProduct);
-    const product = filteredData.find((item) => item.id === id);
-    setEditingProduct(product);
+    const productDataFind = filteredData.find((item) => item.id === id);
+    setEditingProduct(productDataFind);
+    // dispatch(editProducts(productDataFind))
+    
   };
 
   const handleDelete = (id) => {
@@ -129,6 +131,7 @@ function Products(props) {
           onChildStateChange={handleChildStateChangeEditForm}
           {...editingProduct}
           extraProps={{ editText: 'Edit product', saveText: 'Save' }}
+          stateEdit = {editingProduct}
         />
       )}
 

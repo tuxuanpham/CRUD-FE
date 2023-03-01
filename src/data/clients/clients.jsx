@@ -19,4 +19,4 @@ function createRandomClientData(num) {
   return clientData;
 }
 
-export default createRandomClientData(5);
+export default createRandomClientData(10);
