@@ -1,42 +1,44 @@
-import { ActionTypes } from "../constants/ActionTypes";
-import { combineReducers } from "redux";
-import createProductData from "../../data/products/products"
-import createClientData from "../../data/clients/clients"
+import { ActionTypes } from '../constants/ActionTypes';
+import { combineReducers } from 'redux';
+import createProductData from '../../data/products/products';
+import createClientData from '../../data/clients/clients';
+import clientDataDetail from '../../data/clients/clientOrderDetail';
 
-const productData = createProductData
-const listClientDataRemain = createClientData
+const productData = createProductData;
+const clientData = createClientData;
 
 //Khoi tao reducer
 const initStateProduct = {
-  productData
+  productData,
 };
 
 //Khoi tao reducer
 const initStateClient = {
-  listClientDataRemain
+  clientData,
 };
 
 //Product
 export const productReducer = (state = initStateProduct, { type, payload }) => {
   switch (type) {
-
     case ActionTypes.SET_PRODUCTS:
       return {
         ...state,
-        productData: [...state.productData, payload]
+        productData: [...state.productData, payload],
       };
 
     case ActionTypes.DEL_PRODUCTS:
       const productId = payload;
-      const updatedProductsDelete = state.productData.filter(product => product.id !== productId.id);
+      const updatedProductsDelete = state.productData.filter(
+        (product) => product.id !== productId.id
+      );
       return {
         ...state,
-        productData: updatedProductsDelete
+        productData: updatedProductsDelete,
       };
 
     case ActionTypes.EDIT_PRODUCTS:
       const updatedProduct = payload;
-      const updatedProducts = state.productData.map(product => {
+      const updatedProducts = state.productData.map((product) => {
         if (product.id === updatedProduct.id) {
           return updatedProduct;
         }
@@ -44,7 +46,7 @@ export const productReducer = (state = initStateProduct, { type, payload }) => {
       });
       return {
         ...state,
-        productData: updatedProducts
+        productData: updatedProducts,
       };
 
     default:
@@ -55,22 +57,26 @@ export const productReducer = (state = initStateProduct, { type, payload }) => {
 //Client
 export const clientReducer = (state = initStateClient, { type, payload }) => {
   switch (type) {
-
-    case ActionTypes.LIST_CLIENT_DATA_REMAIN:
+    //Client data detail after delete product
+    case ActionTypes.DETAIL_CLIENT_AFTER_DELETE_PRODUCT:
       return {
         ...state,
-        listClientDataRemain: state.listClientDataRemain.map(client => {
+        clientDataDetail: state.clientDataDetail.map((client) => {
+          console.log(client);
           return {
             ...client,
-            products: client.products.filter(product => product.id !== payload.id)
-          }
-        })
+            products: client.products.filter(
+              (product) => product.id !== payload.id
+            ),
+          };
+        }),
       };
 
-    case ActionTypes.LIST_CLIENT_ORDER_DETAIL:
+    //Detail client
+    case ActionTypes.DETAIL_CLIENTS:
       return {
         ...state,
-        listClientOrderDetail: payload
+        clientDataDetail: [...payload],
       };
 
     default:
@@ -81,6 +87,6 @@ export const clientReducer = (state = initStateClient, { type, payload }) => {
 //Combine reducer
 const reducers = combineReducers({
   productReducer,
-  clientReducer
+  clientReducer,
 });
 export default reducers;

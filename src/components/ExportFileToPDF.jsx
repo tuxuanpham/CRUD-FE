@@ -4,13 +4,13 @@ import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
 const styles = StyleSheet.create({
   page: {
     flexDirection: 'row',
-    backgroundColor: '#E4E4E4'
+    backgroundColor: '#E4E4E4',
   },
   section: {
     margin: 10,
     padding: 10,
-    flexGrow: 1
-  }
+    flexGrow: 1,
+  },
 });
 
 // Create PDF component
@@ -26,7 +26,7 @@ function handleExportToPDF({ data }) {
           <Text>Quantity</Text>
           <Text>Total price</Text>
         </View>
-        {data.map(item => (
+        {data.map((item) => (
           <View key={item.id} style={styles.section}>
             <Text>{item.id}</Text>
             <Text>{item.name}</Text>
@@ -41,4 +41,4 @@ function handleExportToPDF({ data }) {
   );
 }
 
-export default handleExportToPDF
+export default handleExportToPDF;

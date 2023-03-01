@@ -1,4 +1,4 @@
-import Chance from "chance";
+import Chance from 'chance';
 const chance = new Chance();
 
 // function createProductData(num) {
@@ -14,24 +14,24 @@ const chance = new Chance();
 //     }
 //     return productData;
 //   }
-  
+
 // export default createProductData(30)
 
 function createProductData(num) {
   const productData = [];
   for (let i = 0; i < num; i++) {
-      productData.push({
-      id:"" + (i+1),
+    productData.push({
+      id: '' + (i + 1),
       name: chance.sentence(),
       manufacturer: chance.word({ syllables: 2 }),
       price: chance.integer({ min: 100, max: 1000 }),
-      quantity: chance.integer({ min: 1, max: 10 })
+      quantity: chance.integer({ min: 1, max: 10 }),
     });
   }
   return productData;
 }
 
-export default createProductData(50)  
+export default createProductData(5);
 
 // const createProductData = [
 //   {
@@ -56,5 +56,5 @@ export default createProductData(50)
 //     quantity: "510"
 //   }
 // ]
-  
+
 // export default createProductData

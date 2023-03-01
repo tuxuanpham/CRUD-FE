@@ -1,13 +1,13 @@
-import { HashRouter, Routes, Route } from "react-router-dom";
-import "./App.css";
-import Employees from "./pages/employees/employees";
-import Clients from "./pages/clients/clients";
-import Products from "./pages/products/products";
-import ClientOrderDetail from "./pages/clients/clientOrderDetail";
-import Header from "./components/Header";
-import CustomerChart from "./pages/charts/CustomerChart";
-import employeeData from "./data/employees/employees";
-import { Container } from "react-bootstrap";
+import { HashRouter, Routes, Route } from 'react-router-dom';
+import './App.css';
+import Employees from './pages/employees/employees';
+import Clients from './pages/clients/clients';
+import Products from './pages/products/products';
+import ClientOrderDetail from './pages/clients/clientOrderDetail';
+import Header from './components/Header';
+import CustomerChart from './pages/charts/CustomerChart';
+import employeeData from './data/employees/employees';
+import { Container } from 'react-bootstrap';
 
 function App() {
   return (

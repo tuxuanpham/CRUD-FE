@@ -1,4 +1,4 @@
-import Chance from "chance";
+import Chance from 'chance';
 const chance = new Chance();
 
 // function createRandomEmployeeData(num) {
@@ -21,26 +21,26 @@ const chance = new Chance();
 //     return employData;
 //   }
 
-
 function createRandomEmployeeData(num) {
-    const employData = [];
-    for (let i = 0; i < num; i++) {
-      employData.push({
-        id:"" + (i+1),
-        firstName: chance.first(),
-        lastName: chance.last(), 
-        address: chance.address(), 
-        city: chance.city(), 
-        state: chance.bool() ? "Working" : "Resigned", 
-        zipCode: chance.zip(), 
-        phoneNumber: chance.phone(), 
-        position: chance.profession(), 
-        hourlyRate: Math.floor(chance.floating({ min: 10, max: 30 }) / chance.hour()) + " USD",
-        dateHired: chance.year({ min: 2000, max: 2023 })
-      });
-    }
-    return employData;
+  const employData = [];
+  for (let i = 0; i < num; i++) {
+    employData.push({
+      id: '' + (i + 1),
+      firstName: chance.first(),
+      lastName: chance.last(),
+      address: chance.address(),
+      city: chance.city(),
+      state: chance.bool() ? 'Working' : 'Resigned',
+      zipCode: chance.zip(),
+      phoneNumber: chance.phone(),
+      position: chance.profession(),
+      hourlyRate:
+        Math.floor(chance.floating({ min: 10, max: 30 }) / chance.hour()) +
+        ' USD',
+      dateHired: chance.year({ min: 2000, max: 2023 }),
+    });
   }
+  return employData;
+}
 
-export default createRandomEmployeeData(50)
-
+export default createRandomEmployeeData(5);
