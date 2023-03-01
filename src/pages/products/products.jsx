@@ -60,7 +60,6 @@ function Products(props) {
     setIsEditProduct(!isEditProduct);
     const productDataFind = filteredData.find((item) => item.id === id);
     setEditingProduct(productDataFind);
-    // dispatch(editProducts(productDataFind))
   };
 
   const handleDelete = (id) => {

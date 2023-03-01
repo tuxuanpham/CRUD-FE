@@ -83,7 +83,7 @@ function Clients(props) {
       <td>
         <Link to={`/clients/detail/${item.id}`}>Detail</Link>
       </td>
-      <div style={{ display: 'flex', marginLeft: "20px" }}>
+      {/* <div style={{ display: 'flex', marginLeft: "20px" }}>
         <button
           type="button"
           className="btn btn-success edit-btn"
@@ -99,7 +99,7 @@ function Clients(props) {
         >
           Delete
         </button>
-      </div>
+      </div> */}
     </tr>
   ));
 
@@ -122,7 +122,7 @@ function Clients(props) {
         <EditProductForm
           onChildStateChange={handleChildStateChangeEditForm}
           {...editingProduct}
-          extraProps={{ editText: 'Edit product', saveText: 'Save' }}
+          extraProps={{ editText: 'Edit customer', saveText: 'Save' }}
           stateEdit = {editingProduct}
         />
       )}
@@ -145,7 +145,7 @@ function Clients(props) {
               <th scope="col" style={{ color: 'red' }}>
                 Detail
               </th>
-              <th scope="col">Edit</th>
+              {/* <th scope="col">Edit</th> */}
             </tr>
           </thead>
           <tbody>{renderList}</tbody>

@@ -27,7 +27,22 @@ function EditProductForm(props) {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmitProduct = (event) => {
+    event.preventDefault();
+    const newProduct = {
+      id: props.id,
+      name: formData.name,
+      manufacturer: formData.manufacturer,
+      price: formData.price,
+      quantity: formData.quantity,
+    };
+    dispatch(editProducts(newProduct));
+    dispatch(clientDataDetailAfterEditProduct(newProduct))
+    setShowForm(!showForm);
+    handleshowForm();
+  };
+
+  const handleSubmitCustomer = (event) => {
     event.preventDefault();
     const newProduct = {
       id: props.id,
@@ -81,8 +96,8 @@ function EditProductForm(props) {
               width: '50%',
             }}
           >
-            <h2>Edit Product</h2>
-            <form onSubmit={handleSubmit}>
+            <h2>{props.extraProps.editText}</h2>
+            <form onSubmit={props.extraProps.editText == `Edit customer` ? handleSubmitCustomer : handleSubmitProduct}>
               <div className="mb-3">
                 <label htmlFor="name" className="form-label">
                   Product Name
@@ -136,7 +151,7 @@ function EditProductForm(props) {
                 />
               </div>
               <button type="submit" className="btn btn-info">
-                Save
+                {props.extraProps.saveText}
               </button>
             </form>
           </div>
