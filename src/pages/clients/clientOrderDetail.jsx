@@ -67,54 +67,54 @@ function ClientOrderDetail() {
     function handleExportToExcel() {
         const headerRow = ["Product ID", "Name of product", "Manufacturer", "Price", "Quantity", "Total price", "Total"];
         const data = filteredData.map((item) => ({
-          "Product ID": item.id,
-          "Name of product": item.name,
-          "Manufacturer": item.manufacturer,
-          "Price": item.price,
-          "Quantity": item.quantity,
-          "Total price": `${item.quantity * item.price} USD`
+            "Product ID": item.id,
+            "Name of product": item.name,
+            "Manufacturer": item.manufacturer,
+            "Price": item.price,
+            "Quantity": item.quantity,
+            "Total price": `${item.quantity * item.price} USD`
         }));
-      
+
         const totalRow = {
-          "Product ID": "",
-          "Name of product": "",
-          "Manufacturer": "",
-          "Price": "",
-          "Quantity": "",
-          "Total price": "",
-          "Total": `${totalPrice} USD`
+            "Product ID": "",
+            "Name of product": "",
+            "Manufacturer": "",
+            "Price": "",
+            "Quantity": "",
+            "Total price": "",
+            "Total": `${totalPrice} USD`
         };
-      
+
         const worksheet = XLSX.utils.json_to_sheet([...data, totalRow], { header: headerRow });
         const workbook = XLSX.utils.book_new();
         XLSX.utils.book_append_sheet(workbook, worksheet, 'Filtered Data');
         const xlsxName = `${renderOrderDetail.firstName + "_" + renderOrderDetail.lastName}_Orders.xlsx`
         XLSX.writeFile(workbook, xlsxName);
-      }
-      
+    }
 
 
-      function handleExportToPDF() {
+
+    function handleExportToPDF() {
         // Tạo đối tượng jsPDF mới
         const doc = new jsPDF();
-        
+
         // Thêm nội dung vào trang PDF bằng cách sử dụng phương thức doc.text
         doc.text("Orders of " + renderOrderDetail.firstName + " " + renderOrderDetail.lastName, 10, 10);
-      
+
         // Tạo bảng bằng thư viện autotable của jsPDF
         doc.autoTable({
-          head: [['Product name', 'Manufacturer', 'Price', 'Quantity', 'Total price']],
-          body: filteredData.map((item) => [item.name, item.manufacturer, item.price, item.quantity, item.quantity * item.price]),
-          startY: 20,
+            head: [['Product name', 'Manufacturer', 'Price', 'Quantity', 'Total price']],
+            body: filteredData.map((item) => [item.name, item.manufacturer, item.price, item.quantity, item.quantity * item.price]),
+            startY: 20,
         });
-      
+
         // Thêm tổng giá trị vào cuối trang
         doc.text(`Total: ${totalPrice} USD`, 10, doc.autoTable.previous.finalY + 10);
-      
+
         // Lưu trữ tệp PDF bằng cách sử dụng phương thức save của đối tượng jsPDF
         const pdfName = `${renderOrderDetail.firstName + "_" + renderOrderDetail.lastName}_Orders.pdf`
         doc.save(pdfName);
-      }
+    }
 
 
     return (
@@ -136,23 +136,25 @@ function ClientOrderDetail() {
                     />
                 </div> */}
 
-                <h2 className="text-start text-danger" style={{fontStyle: "italic"}}>{"Orders of " + renderOrderDetail.firstName + " " + renderOrderDetail.lastName}</h2>
-                <table className="table" >
-                    <thead>
-                        <tr>
-                            <th scope="col">Product name</th>
-                            <th scope="col">Manufacturer</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Quantity</th>
-                            <th scope="col">Total price</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {renderList}
-                        <h3 style={{ right: "11%", position: "absolute", color: "red" }}>Total: {totalPrice} USD</h3>
-                    </tbody>
+                <h2 className="text-start text-danger" style={{ fontStyle: "italic" }}>{"Orders of " + renderOrderDetail.firstName + " " + renderOrderDetail.lastName}</h2>
+                <div class="table-responsive table-responsive-sm">
+                    <table className="table table-sm">
+                        <thead>
+                            <tr>
+                                <th scope="col">Product name</th>
+                                <th scope="col">Manufacturer</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Total price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {renderList}
+                            <h3 style={{ right: "11%", position: "absolute", color: "red" }}>Total: {totalPrice} USD</h3>
+                        </tbody>
 
-                </table>
+                    </table>
+                </div>
             </div>
         </div>
     )
