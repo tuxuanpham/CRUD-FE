@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { setProducts } from '../redux/actions/ProductAction';
+import { setProducts } from '../redux/actions/productActions';
 import { v4 as uuidv4 } from 'uuid';
 
 function AddProductForm(props) {

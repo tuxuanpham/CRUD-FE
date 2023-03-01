@@ -2,7 +2,7 @@ import { ActionTypes } from '../constants/ActionTypes';
 import { combineReducers } from 'redux';
 import createProductData from '../../data/products/products';
 import createClientData from '../../data/clients/clients';
-import clientDataDetail from '../../data/clients/clientOrderDetail';
+import employeeData from '../../data/employees/employees';
 
 const productData = createProductData;
 const clientData = createClientData;
@@ -12,9 +12,12 @@ const initStateProduct = {
   productData,
 };
 
-//Khoi tao reducer
 const initStateClient = {
   clientData,
+};
+
+const initStateEmployee = {
+  employeeData,
 };
 
 //Product
@@ -104,9 +107,61 @@ export const clientReducer = (state = initStateClient, { type, payload }) => {
   }
 };
 
+
+//Employee
+export const employeeReducer = (state = initStateEmployee, { type, payload }) => {
+  switch (type) {
+    //Client data detail after delete product
+    // case ActionTypes.DETAIL_CLIENT_AFTER_DELETE_PRODUCT:
+    //   return {
+    //     ...state,
+    //     clientDataDetail: state.clientDataDetail.map((client) => {
+    //       console.log(client);
+    //       return {
+    //         ...client,
+    //         products: client.products.filter(
+    //           (product) => product.id !== payload.id
+    //         ),
+    //       };
+    //     }),
+    //   };
+
+    //Client data detail after edit product
+    // case ActionTypes.DETAIL_CLIENT_AFTER_EDIT_PRODUCT:
+    //   console.log(payload)
+    //   return {
+    //     ...state,
+    //     clientDataDetail: state.clientDataDetail.map((client) => {
+    //       return {
+    //         ...client,
+    //         products: client.products.map((product)=>{
+    //           if(product.id == payload.id){
+    //             return payload;
+    //           }
+    //           else{
+    //             return product
+    //           }
+    //         }),
+    //       };
+    //     }),
+    //   };
+
+    //Detail client
+    case ActionTypes.SET_EMPLOYEE:
+      return {
+        ...state,
+        clientDataDetail: [...payload],
+      };
+
+    default:
+      return state;
+  }
+};
+
 //Combine reducer
 const reducers = combineReducers({
   productReducer,
   clientReducer,
+  employeeReducer
 });
 export default reducers;

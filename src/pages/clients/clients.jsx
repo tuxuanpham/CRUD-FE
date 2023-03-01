@@ -1,13 +1,34 @@
 import { useState } from 'react';
 import createRandomClientData from '../../data/clients/clients';
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import EditProductForm from '../../components/EditProductForm';
 
 function Clients(props) {
+  const dispatch = useDispatch();
   const data = createRandomClientData;
   const [searchTerm, setSearchTerm] = useState('');
+  const [isEditProduct, setIsEditProduct] = useState(false);
+  const [editingProduct, setEditingProduct] = useState(null);
+
+  const handleChildStateChangeEditForm = (childState) => {
+    setIsEditProduct(childState);
+  };
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
+  };
+
+  const handleEdit = (id) => {
+    setIsEditProduct(!isEditProduct);
+    const productDataFind = filteredData.find((item) => item.id === id);
+    setEditingProduct(productDataFind);
+  };
+
+  const handleDelete = (id) => {
+    // const productDel = filteredData.find((item) => item.id === id);
+    // dispatch(deleteProducts(productDel));
+    // dispatch(clientDataDetailAfterDeleteProduct(productDel));
   };
 
   const sortedData = data.sort((a, b) => {
@@ -62,6 +83,23 @@ function Clients(props) {
       <td>
         <Link to={`/clients/detail/${item.id}`}>Detail</Link>
       </td>
+      <div style={{ display: 'flex', marginLeft: "20px" }}>
+        <button
+          type="button"
+          className="btn btn-success edit-btn"
+          style={{ marginRight: '5px' }}
+        onClick={() => handleEdit(item.id)}
+        >
+          Edit
+        </button>
+        <button
+          type="button"
+          className="btn btn-danger"
+        onClick={() => handleDelete(item.id)}
+        >
+          Delete
+        </button>
+      </div>
     </tr>
   ));
 
@@ -79,6 +117,16 @@ function Clients(props) {
           onChange={handleSearch}
         />
       </div>
+
+      {isEditProduct && (
+        <EditProductForm
+          onChildStateChange={handleChildStateChangeEditForm}
+          {...editingProduct}
+          extraProps={{ editText: 'Edit product', saveText: 'Save' }}
+          stateEdit = {editingProduct}
+        />
+      )}
+
       <div class="table-responsive table-responsive-sm">
         <table className="table table-sm">
           <thead>
@@ -97,6 +145,7 @@ function Clients(props) {
               <th scope="col" style={{ color: 'red' }}>
                 Detail
               </th>
+              <th scope="col">Edit</th>
             </tr>
           </thead>
           <tbody>{renderList}</tbody>

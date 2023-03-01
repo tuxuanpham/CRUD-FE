@@ -1,7 +1,7 @@
 import clientData from './clients';
 import productData from '../products/products';
 import store from '../../redux/store';
-import { clientOrderDetail } from '../../redux/actions/clientOrderDetail';
+import { clientOrderDetail } from '../../redux/actions/clientActions';
 
 const getRandomProducts = (products, num) => {
   for (let i = products.length - 1; i > 0; i--) {

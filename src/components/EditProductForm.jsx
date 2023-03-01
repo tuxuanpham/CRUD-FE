@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { editProducts } from '../redux/actions/ProductAction';
+import { editProducts } from '../redux/actions/productActions';
 import { v4 as uuidv4 } from 'uuid';
-import { clientDataDetailAfterEditProduct } from '../redux/actions/clientOrderDetail';
+import { clientDataDetailAfterEditProduct } from '../redux/actions/clientActions';
 
 function EditProductForm(props) {
   const [formData, setFormData] = useState({
