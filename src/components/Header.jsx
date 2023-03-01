@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 function Header(props) {
     return (
-        <div className="m-4">
+        <div style={{ margin: "12px 0 32px 0" }} >
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
                 <div className="container-fluid">
                     <h1 className="navbar-brand">CRUD Admin</h1>

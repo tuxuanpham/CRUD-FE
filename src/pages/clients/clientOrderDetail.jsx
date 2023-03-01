@@ -119,7 +119,7 @@ function ClientOrderDetail() {
 
     return (
         <div>
-            <div style={{ display: "flex", marginLeft: "25px" }}>
+            <div style={{ display: "flex", marginBottom: "25px" }}>
                 <button type="button" class="btn btn-success" onClick={handleExportToPDF}>Export to PDF</button>
                 <button type="button" class="btn btn-info" style={{ marginLeft: '20px' }} onClick={handleExportToExcel}>Export to Excel</button>
             </div>
@@ -136,8 +136,8 @@ function ClientOrderDetail() {
                     />
                 </div> */}
 
-                <h2 className="m-4 text-start text-danger" style={{fontStyle: "italic"}}>{"Orders of " + renderOrderDetail.firstName + " " + renderOrderDetail.lastName}</h2>
-                <table className="table container" >
+                <h2 className="text-start text-danger" style={{fontStyle: "italic"}}>{"Orders of " + renderOrderDetail.firstName + " " + renderOrderDetail.lastName}</h2>
+                <table className="table" >
                     <thead>
                         <tr>
                             <th scope="col">Product name</th>

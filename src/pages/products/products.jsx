@@ -85,7 +85,7 @@ function Products(props) {
                 <td class="text-start">{item.manufacturer}</td>
                 <td>{item.price} USD</td>
                 <td>{item.quantity}</td>
-                <div style={{display: "flex"}} >
+                <div style={{ display: "flex" }} >
                     <button
                         type="button"
                         className="btn btn-success edit-btn"
@@ -107,8 +107,9 @@ function Products(props) {
     });
 
     return (
-        <div>
-            <div className="form-group m-4">
+        <div style={{ margin: "12px 0 32px 0" }}>
+            <h1 style={{ textAlign: "left", marginBottom: "32px" }}>Product manage</h1>
+            <div className="form-group">
                 <input
                     type="text"
                     className="form-control"
@@ -117,7 +118,7 @@ function Products(props) {
                     onChange={handleSearch}
                 />
             </div>
-            <button type="button" class="btn btn-primary d-flex ms-4" onClick={handleShowAddProduct}>Add product</button>
+            <button style={{ margin: "16px 0" }} type="button" class="btn btn-primary d-flex" onClick={handleShowAddProduct}>Add product</button>
 
             {isAddingProduct && <AddProductForm onChildStateChange={handleChildStateChange} />}
 
@@ -125,19 +126,21 @@ function Products(props) {
                 <EditProductForm onChildStateChange={handleChildStateChangeEditForm} {...editingProduct} extraProps={{ editText: "Edit product", saveText: "Save" }} />
             )}
 
-            <table className="table container">
-                <thead>
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Product name</th>
-                        <th scope="col">Manufacturer</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Quantity</th>
-                        <th scope="col">Edit</th>
-                    </tr>
-                </thead>
-                <tbody>{renderList}</tbody>
-            </table>
+            <div class="table-responsive table-responsive-sm">
+                <table className="table table-sm">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Product name</th>
+                            <th scope="col">Manufacturer</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Edit</th>
+                        </tr>
+                    </thead>
+                    <tbody>{renderList}</tbody>
+                </table>
+            </div>
         </div>
     );
 }

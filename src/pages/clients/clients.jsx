@@ -3,7 +3,7 @@ import createRandomClientData from "../../data/clients/clients";
 import { Link } from "react-router-dom";
 
 function Clients(props) {
-    
+
     const data = createRandomClientData;
     const [searchTerm, setSearchTerm] = useState("");
 
@@ -59,11 +59,12 @@ function Clients(props) {
             </td>
         </tr>
     ))
-    
+
 
     return (
-        <div>
-            <div className="form-group m-4">
+        <div style={{ margin: "12px 0 32px 0" }}>
+            <h1 style={{ textAlign: "left", marginBottom: "32px" }}>Customer manage</h1>
+            <div className="form-group">
                 <input
                     type="text"
                     className="form-control"
@@ -72,23 +73,25 @@ function Clients(props) {
                     onChange={handleSearch}
                 />
             </div>
-            <table className="table container">
-                <thead>
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">First Name</th>
-                        <th scope="col">Last Name</th>
-                        <th scope="col">Address</th>
-                        <th scope="col">City</th>
-                        <th scope="col" style={{color: 'red'}}>State</th>
-                        <th scope="col">Zipcode</th>
-                        <th scope="col">Phone number</th>
-                        <th scope="col">Email address</th>
-                        <th scope="col" style={{color: 'red'}}>Detail</th>
-                    </tr>
-                </thead>
-                <tbody>{renderList}</tbody>
-            </table>
+            <div class="table-responsive table-responsive-sm">
+                <table className="table table-sm">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">First Name</th>
+                            <th scope="col">Last Name</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">City</th>
+                            <th scope="col" style={{ color: 'red' }}>State</th>
+                            <th scope="col">Zipcode</th>
+                            <th scope="col">Phone number</th>
+                            <th scope="col">Email address</th>
+                            <th scope="col" style={{ color: 'red' }}>Detail</th>
+                        </tr>
+                    </thead>
+                    <tbody>{renderList}</tbody>
+                </table>
+            </div>
         </div>
     );
 }

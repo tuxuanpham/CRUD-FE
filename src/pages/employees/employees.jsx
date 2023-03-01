@@ -26,7 +26,7 @@ function Employees(props) {
         return 0;
     });
 
-    
+
 
     const filteredData = sortedData.filter((item) => {
         return (
@@ -63,8 +63,9 @@ function Employees(props) {
     });
 
     return (
-        <div>
-            <div className="form-group m-4">
+        <div style={{ margin: "12px 0 32px 0" }}>
+            <h1 style={{ textAlign: "left", marginBottom: "32px" }}>Employee manage</h1>
+            <div className="form-group">
                 <input
                     type="text"
                     className="form-control"
@@ -73,24 +74,28 @@ function Employees(props) {
                     onChange={handleSearch}
                 />
             </div>
-            <table className="table container">
-                <thead>
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">First Name</th>
-                        <th scope="col">Last Name</th>
-                        <th scope="col">Address</th>
-                        <th scope="col">City</th>
-                        <th scope="col" style={{color: 'red'}}>State</th>
-                        <th scope="col">Zipcode</th>
-                        <th scope="col">Phone number</th>
-                        <th scope="col">Position</th>
-                        <th scope="col">Hourly Rate</th>
-                        <th scope="col">Date hired</th>
-                    </tr>
-                </thead>
-                <tbody>{renderList}</tbody>
-            </table>
+
+            <div class="table-responsive table-responsive-sm">
+                <table className="table table-sm">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">First Name</th>
+                            <th scope="col">Last Name</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">City</th>
+                            <th scope="col" style={{ color: 'red' }}>State</th>
+                            <th scope="col">Zipcode</th>
+                            <th scope="col">Phone number</th>
+                            <th scope="col">Position</th>
+                            <th scope="col">Hourly Rate</th>
+                            <th scope="col">Date hired</th>
+                        </tr>
+                    </thead>
+                    <tbody>{renderList}</tbody>
+                </table>
+            </div>
+
         </div>
     );
 }
